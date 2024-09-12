@@ -5,19 +5,30 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    //alert("Clicked Add Row"); // Replace this line with your code.
     fullGrid = document.getElementById("grid");
-    let newRow = fullGrid.insertRow();
-    for(let i = 0; i <= numCols; i++){
+    let newRow = fullGrid.insertRow(); //Built in function.
+    for(let i = 0; i <= numCols; i++){ //Important note: Set to less than or equal to to account for empty grid.
         let newCell = newRow.insertCell();
-        newCell.style.backgroundColor = "white";
+        newCell.style.backgroundColor = "white"; //Will need updating when color changing function is updated.
     }
     numRows++;
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    fullGrid = document.getElementById("grid");
+    //Ask for clarification with numRow == 0, should we add a row first?
+    // if(numRows == 0){
+    //     addR();
+    // }
+    // else{
+        for(let i = 0; i <= numRows; i++){
+            individualRow = fullGrid.rows[i];
+            let newCell = individualRow.insertCell();
+            newCell.style.backgrounColor = "white"; //Will need updating when color changing function is updated.
+        //}
+    }
+    numCols++;
 }
 
 // Remove a row
