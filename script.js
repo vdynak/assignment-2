@@ -5,7 +5,14 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    //alert("Clicked Add Row"); // Replace this line with your code.
+    fullGrid = document.getElementById("grid");
+    let newRow = fullGrid.insertRow();
+    for(let i = 0; i <= numCols; i++){
+        let newCell = newRow.insertCell();
+        newCell.style.backgroundColor = "white";
+    }
+    numRows++;
 }
 
 // Add a column
