@@ -3,35 +3,39 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-// Add a row
+//Add a row
 function addR() {
     fullGrid = document.getElementById("grid");
-    let newRow = fullGrid.insertRow(); //Built in function.
-    for(let i = 0; i <= numCols; i++){ //Important note: Set to less than or equal to to account for empty grid.
-        let newCell = newRow.insertCell();
-        newCell.style.backgroundColor = "white"; //Will need updating when color changing function is updated.
+    //Account for the creation of the first row (should also increase col count)
+    if (numRows >= 0) {
+        let newRow = fullGrid.insertRow();
+        //If this is the first row being added, increase the number of columns as well.
+        if (numRows === 0) {
+            numCols++;  // The first row defines the number of columns.
+        }
+        //Add cells to the new row.
+        for (let i = 0; i < numCols; i++) {
+            let newCell = newRow.insertCell();
+            newCell.style.backgroundColor = "white"; // Default color
+        }
+        numRows++;
+        console.log("Rows:", numRows);
     }
-    numRows++;
-    console.log(numRows);
 }
-//FIX COL COUNT HERE
 
-// Add a column
+//Add a column
 function addC() {
     fullGrid = document.getElementById("grid");
-    //Ask for clarification with numRow == 0, should we add a row first?
-    // if(numRows == 0){
-    //     addR();
-    // }
-    // else{
-        for(let i = 0; i < numRows; i++){
+    //Determine what to do when there are no rows??
+    if (numRows > 0) {
+        for (let i = 0; i < numRows; i++) { // Change <= to < to avoid undefined rows
             singleRow = fullGrid.rows[i];
             let newCell = singleRow.insertCell();
-            newCell.style.backgrounColor = "white"; //Will need updating when color changing function is updated.
-        //}
+            newCell.style.backgroundColor = "white"; // Default color
+        }
+        numCols++;
+        console.log("Cols:", numCols);
     }
-    numCols++;
-    console.log(numCols);
 }
 
 // Remove a row
@@ -41,7 +45,7 @@ function removeR() {
         fullGrid.deleteRow(numRows - 1); //Indexing starts at 0.
         numRows--;
     }
-    console.log(numRows)
+    console.log("Rows:", numRows)
 }
 
 // Remove a column
@@ -49,10 +53,12 @@ function removeC() {
    fullGrid = document.getElementById("grid");
    for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
-        let removedCell = singleRow.deleteCell(-1);
+        let removedCell = singleRow.deleteCell(-1); //Removes from the end.
    }
-   numCols--;
-   console.log(numCols);
+   if(numCols > 0){
+        numCols--;
+   }
+   console.log("Cols:", numCols);
 }
 
 // Set global variable for selected color
