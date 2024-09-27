@@ -12,7 +12,9 @@ function addR() {
         newCell.style.backgroundColor = "white"; //Will need updating when color changing function is updated.
     }
     numRows++;
+    console.log(numRows);
 }
+//FIX COL COUNT HERE
 
 // Add a column
 function addC() {
@@ -22,23 +24,35 @@ function addC() {
     //     addR();
     // }
     // else{
-        for(let i = 0; i <= numRows; i++){
-            individualRow = fullGrid.rows[i];
-            let newCell = individualRow.insertCell();
+        for(let i = 0; i < numRows; i++){
+            singleRow = fullGrid.rows[i];
+            let newCell = singleRow.insertCell();
             newCell.style.backgrounColor = "white"; //Will need updating when color changing function is updated.
         //}
     }
     numCols++;
+    console.log(numCols);
 }
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    fullGrid = document.getElementById("grid");
+    if(numRows > 0){
+        fullGrid.deleteRow(numRows - 1); //Indexing starts at 0.
+        numRows--;
+    }
+    console.log(numRows)
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+   fullGrid = document.getElementById("grid");
+   for(let i = 0; i < numRows; i++){
+        singleRow = fullGrid.rows[i];
+        let removedCell = singleRow.deleteCell(-1);
+   }
+   numCols--;
+   console.log(numCols);
 }
 
 // Set global variable for selected color
