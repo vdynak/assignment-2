@@ -88,13 +88,36 @@ function fillSingle(cell) {
 }
 
 // Fill all uncolored cells
-function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+function fillU() {
+    fullGrid = document.getElementById("grid");
+    for(let i = 0; i < numRows; i++){
+        singleRow = fullGrid.rows[i];
+        for(let j = 0; j < numCols; j++){
+            let cell = singleRow.cells[j];
+            if(cell.style.backgroundColor === "white") {
+                cell.style.backgroundColor = colorSelected;
+            }
+            else if(cell.style.backgrounColor === "SELECT") {
+                alert("Select a color.");
+            }
+        }
+    }
 }
 
 // Fill all cells
-function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+//This follows the same logic as fillU, but there are no conditions on the pre-color condition, so we can omit that.
+function fillAll() {
+    fullGrid = document.getElementById("grid");
+    for(let i = 0; i < numRows; i++){
+        singleRow = fullGrid.rows[i];
+        for(let j = 0; j < numCols; j++){
+            let cell = singleRow.cells[j];
+            if(colorSelected === "SELECT") {
+                alert("Select a color.");
+            }
+            cell.style.backgroundColor = colorSelected;
+        }
+    }
 }
 
 // Clear all cells
