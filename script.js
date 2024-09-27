@@ -2,10 +2,10 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
+const fullGrid = document.getElementById("grid");
 
 //Add a row
 function addR() {
-    fullGrid = document.getElementById("grid");
     //Account for the creation of the first row (should also increase col count)
     if (numRows >= 0) {
         let newRow = fullGrid.insertRow();
@@ -30,7 +30,6 @@ function addR() {
 
 //Add a column
 function addC() {
-    fullGrid = document.getElementById("grid");
     //Determine what to do when there are no rows??
     if (numRows > 0) {
         for (let i = 0; i < numRows; i++) { // Change <= to < to avoid undefined rows
@@ -50,7 +49,6 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    fullGrid = document.getElementById("grid");
     if(numRows > 0){
         fullGrid.deleteRow(numRows - 1); //Indexing starts at 0.
         numRows--;
@@ -60,7 +58,6 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-   fullGrid = document.getElementById("grid");
    for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
         let removedCell = singleRow.deleteCell(-1); //Removes from the end.
@@ -89,7 +86,6 @@ function fillSingle(cell) {
 
 // Fill all uncolored cells
 function fillU() {
-    fullGrid = document.getElementById("grid");
     for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
         for(let j = 0; j < numCols; j++){
@@ -107,7 +103,6 @@ function fillU() {
 // Fill all cells
 //This follows the same logic as fillU, but there are no conditions on the pre-color condition, so we can omit that.
 function fillAll() {
-    fullGrid = document.getElementById("grid");
     for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
         for(let j = 0; j < numCols; j++){
@@ -122,5 +117,11 @@ function fillAll() {
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    for(let i = 0; i < numRows; i++){
+        singleRow = fullGrid.rows[i];
+        for(let j = 0; j < numCols; j++){
+            let cell = singleRow.cells[j];
+            cell.style.backgroundColor = "white";
+        }
+    }
 }
