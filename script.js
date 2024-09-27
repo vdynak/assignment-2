@@ -17,6 +17,11 @@ function addR() {
         for (let i = 0; i < numCols; i++) {
             let newCell = newRow.insertCell();
             newCell.style.backgroundColor = "white"; // Default color
+
+            //Added event listener for the requiremenet in rubric for single cell coloring.
+            newCell.addEventListener("click", function() {
+                fillSingle(newCell);
+            });
         }
         numRows++;
         console.log("Rows:", numRows);
@@ -32,6 +37,11 @@ function addC() {
             singleRow = fullGrid.rows[i];
             let newCell = singleRow.insertCell();
             newCell.style.backgroundColor = "white"; // Default color
+
+            //Added event listener for the requiremenet in rubric for single cell coloring.
+            newCell.addEventListener("click", function() {
+                fillSingle(newCell);
+            });
         }
         numCols++;
         console.log("Cols:", numCols);
@@ -65,6 +75,16 @@ function removeC() {
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
     console.log(colorSelected);
+}
+
+//color a single cell, by clicking on the cell, and change its color to the selected color
+function fillSingle(cell) {
+    if(colorSelected && colorSelected != "SELECT") {
+        cell.style.backgroundColor = colorSelected;
+    }
+    else{
+        alert("Select a color.");
+    }
 }
 
 // Fill all uncolored cells
