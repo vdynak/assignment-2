@@ -24,7 +24,6 @@ function addR() {
             });
         }
         numRows++;
-        console.log("Rows:", numRows);
     }
 }
 
@@ -47,7 +46,6 @@ function addC() {
             });
         }
         numCols++;
-        console.log("Cols:", numCols);
     }
 }
 
@@ -57,7 +55,6 @@ function removeR() {
         fullGrid.deleteRow(numRows - 1); //Indexing starts at 0.
         numRows--;
     }
-    console.log("Rows:", numRows)
 }
 
 // Remove a column
@@ -69,7 +66,6 @@ function removeC() {
    if(numCols > 0){
         numCols--;
    }
-   console.log("Cols:", numCols);
 }
 
 // Set global variable for selected color
