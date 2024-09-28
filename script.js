@@ -80,25 +80,25 @@ function selectColor(){
 
 //color a single cell, by clicking on the cell, and change its color to the selected color
 function fillSingle(cell) {
-    if(colorSelected && colorSelected != "SELECT") {
-        cell.style.backgroundColor = colorSelected;
+    if(!colorSelected || colorSelected === "SELECT") {
+        alert("Select a color.");
     }
     else{
-        alert("Select a color.");
+        cell.style.backgroundColor = colorSelected;
     }
 }
 
 // Fill all uncolored cells
 function fillU() {
+    if(!colorSelected || colorSelected === "SELECT") {
+        alert("Select a color.");
+    }
     for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
         for(let j = 0; j < numCols; j++){
             let cell = singleRow.cells[j];
             if(cell.style.backgroundColor === "white") {
                 cell.style.backgroundColor = colorSelected;
-            }
-            else if(cell.style.backgrounColor === "SELECT") {
-                alert("Select a color.");
             }
         }
     }
@@ -107,13 +107,13 @@ function fillU() {
 // Fill all cells
 //This follows the same logic as fillU, but there are no conditions on the pre-color condition, so we can omit that.
 function fillAll() {
+    if(!colorSelected || colorSelected === "SELECT") {
+        alert("Select a color.");
+    }
     for(let i = 0; i < numRows; i++){
         singleRow = fullGrid.rows[i];
         for(let j = 0; j < numCols; j++){
             let cell = singleRow.cells[j];
-            if(colorSelected === "SELECT") {
-                alert("Select a color.");
-            }
             cell.style.backgroundColor = colorSelected;
         }
     }

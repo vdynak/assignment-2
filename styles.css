@@ -1,9 +1,84 @@
-tr,td{
-    border:1px;
-    border-style: solid;
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('https://wallpapers.com/images/hd/tetris-multicolored-pattern-4u7ed6koskqhcez1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-td{
+
+/* Style for fixed button menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(137, 135, 135, 0.8);
+    padding: 15px;
+    gap: 10px;
+    z-index: 10; /* Menu remains fixed on top. */
+}
+
+/* Style for buttons */
+button {
+    background-color: #376e8c;
+    border: none;
+    padding: 10px 15px;
+    margin: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'VT323', monospace;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition when color changes */
+}
+
+button:hover {
+    background-color: #7db6ca;
+}
+
+/* Style for dropdown menu */
+select {
+    background-color: #d3e9f5;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 14px;
+    font-family: 'VT323', monospace;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+select:hover {
+    background-color: #b0d9e8;
+}
+
+/* Center grid table and ensure it doesn't interfere with the button menu */
+#grid {
+    border-collapse: collapse;
+    margin-top: 100px; /* Add top margin to prevent overlap with fixed buttons */
+}
+
+/* Style table cells */
+td {
     height: 50px;
     width: 50px;
     background-color: white;
+    border: 1px solid #ccc;
+}
+
+/* Style for table to make it centered */
+table {
+    margin: auto;
+    border: none;
 }
