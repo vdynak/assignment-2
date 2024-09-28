@@ -1,3 +1,15 @@
+# Updates by Victoria Dynak
+
+Edits made by Victoria Dynak.
+
+I worked on this project individually.
+
+My Github Page: https://vdynak.github.io/
+
+Project Description: The Grid Maker project is a website that features several functionality buttons related to a grid. At the top of the page, there are seven buttons and a dropdown menu - Add Row, Add Col, Remove Row, Remove Col, Fill All Uncolored, Fill All, Clear, and the SELECT/Color dropdown. Each button corresponds to its title; therefore, the user can customize their grid with as many rows and/or columns as they would like. Each row/column can also have a unique color, or all cells in these rows/columns can be filled to be of the same color. The four main colors are red, green, blue, and yellow. The clear button does not clear the whole grid; instead, it clears the color of all the cells to white. This dynamic grid system is built using JavaScript, HTML, and CSS, which teaches the developer an understanding of DOM manipulation, event handling, conditional logic, and dynamic user interface design.
+
+
+
 # grid-maker-starter-code
 This repository is the starter code for Assignment 3 - Grid Maker.
 
