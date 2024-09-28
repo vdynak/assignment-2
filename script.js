@@ -30,7 +30,11 @@ function addR() {
 
 //Add a column
 function addC() {
-    //Determine what to do when there are no rows??
+    // If this is the first column being added, increase the number of rows as well.
+    if (numCols === 0) {
+        let newRow = fullGrid.insertRow(0); // Insert at the top (index 0)
+        numRows++;  // The first column defines the number of rows.
+    }
     if (numRows > 0) {
         for (let i = 0; i < numRows; i++) { // Change <= to < to avoid undefined rows
             singleRow = fullGrid.rows[i];
